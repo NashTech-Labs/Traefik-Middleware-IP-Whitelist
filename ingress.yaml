@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-ip-whitelist
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.middlewares: default-test-ipwhitelist@kubernetescrd
+spec:
+  rules:
+    - host: test.whitelist.com
+      http:
+        paths:
+           - path: /
+             pathType: Prefix
+             backend:
+                  service:
+                     name: my-app-service
+                     port:
+                       number: 80
+
+
+
+
+
+
+
+
+
