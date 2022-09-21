@@ -6,7 +6,7 @@ IP whitelisting will allow you to create lists of IP addresses or IP ranges from
 
 To whitelist IPs first we need to patch the traefik Ingress Controller service.Use below command to patch the service.
 
-`kubectl patch service traefik -n kube-system --patch $'spec:\n externalTrafficPolicy: Cluster\n'`
+`kubectl patch service traefik -n kube-system --patch $'spec:\n externalTrafficPolicy: local\n'`
 
 # ADD Ips that need to be whitelist
 
